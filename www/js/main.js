@@ -9,11 +9,15 @@ $(document).ready(function(){
     
     // Get bill amounts and calculate tip and total amounts
     var calculateTip = function(){
-        var bill = Number($('#billAmount').val());
-        var tip = bill * tipPercent;
-        var total = bill + tip;
-        $('#tipAmount').text('$' + tip.toFixed(2));
-        $('#totalAmount').text('$' + total.toFixed(2));
+        var bill = $('#billAmount').val();
+        var formattedBill, leftOfDecimal, rightOfDecimal;
+        rightOfDecimal = bill.slice(-2);
+        leftOfDecimal = bill.slice(0, -2);
+        alert(leftOfDecimal+'.'+rightOfDecimal);
+//        var tip = bill * tipPercent;
+//        var total = bill + tip;
+//        $('#tipAmount').text('$' + tip.toFixed(2));
+//        $('#totalAmount').text('$' + total.toFixed(2));
     };
     
     // Change tipPercent global variable to match what the user enters in settings
