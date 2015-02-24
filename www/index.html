@@ -42,15 +42,20 @@
         </div>
         <div data-role="page" id="settingsPage" data-add-back-btn="true">
             <div data-role="header">
-                <a href="#mainPage" class="ui-btn-left ui-btn-icon-left" data-icon="delete" data-role="button">
+                <a href="#mainPage" id="cancelSettings" class="ui-btn-left ui-btn-icon-left" data-icon="delete" data-role="button">
                     Cancel
                 </a>
                 <h1>Settings</h1>
             </div>
             <div data-role="content">
                 <form>
-                    <input type="number" name="tipPercentage" id="tipPercentage" value="" placeholder="Tip Percentage" step="0.01">
-                    <a href="#" id="saveSettings" class="center" data-role="button" data-inline="true" data-icon="check">Save</a>
+                    <div data-role="fieldcontain">
+                        <label for="tipPercentage">Tip %</label>
+                        <input type="number" name="tipPercentage" id="tipPercentage" value="" placeholder="Tip Percentage" step="0.01">
+                        <a href="#" id="saveSettings" class="center" data-role="button" data-inline="true" data-icon="check">Save</a>
+                    </div>
+                    
+                    <a href="loginTest.html" id="loginNavLink" class="center" data-role="button" data-inline="true" data-icon="arrow-r">Login</a>
                 </form>
             </div>
         </div>

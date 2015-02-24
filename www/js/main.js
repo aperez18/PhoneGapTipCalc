@@ -7,10 +7,11 @@ $(document).ready(function(){
     // Some real hacky way to get around string verification
     $('#calculateTip').click(function(){
         var bill = $('#billAmount').val();
-        var formattedBill, leftOfDecimal, rightOfDecimal;
-        rightOfDecimal = bill.slice(-2);
-        leftOfDecimal = bill.slice(0, -2);
-        formattedBill = parseFloat(leftOfDecimal + '.' + rightOfDecimal);
+        var formattedBill;//, leftOfDecimal, rightOfDecimal;
+//        rightOfDecimal = bill.slice(-2);
+//        leftOfDecimal = bill.slice(0, -2);
+//        formattedBill = parseFloat(leftOfDecimal + '.' + rightOfDecimal);
+        formattedBill = bill/100;
         if(confirm('Confirm bill for $' + formattedBill + '?')){
             var tip = formattedBill * tipPercent;
             var total = formattedBill + tip;
@@ -25,7 +26,7 @@ $(document).ready(function(){
         try{
             var tipPct = parseFloat($('#tipPercentage').val());
             // Use the HTML5 localStorage object to store the settings for tipPercentage
-            // Much like a cookie/session variable, or persistance object
+            // Much like a cookie/session variable, or HTTP request object
             localStorage.setItem('tipPercentage', tipPct);
             // Change tipPercent to user input at settings page
             tipPercent = tipPct;
@@ -42,6 +43,16 @@ $(document).ready(function(){
         tipPercent = parseFloat(tipPercentSetting);
     }
     $('#tipPercentage').val(tipPercent);
+    
+    // Reset value of textbox if settings change is cancelled
+//    $('#cancelSettings').click(function(){
+//        $('#tipPercentage').val();
+//    });
+
+//    $('#loginNavLink').click(function(){
+//        window.open('loginTest.html', 'Login Page');
+//    });
+    
 });
 
 // Not entirely sure what this does. Research it.
