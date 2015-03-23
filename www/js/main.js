@@ -53,17 +53,22 @@ $(document).ready(function(){
 //    $('#loginNavLink').click(function(){
 //        window.open('loginTest.html', 'Login Page');
 //    });
+
+    $('#info').click(function(){
+        var model = device.model;
+        alert(model);
+    });
     
 });
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    alert('ready');
-    $('#info').click(function(){
-        var cordovaVersion = device.cordova;
-        alert(cordovaVersion);
-    });
-}
+//document.addEventListener("deviceready", onDeviceReady, false);
+//function onDeviceReady() {
+//    alert('ready');
+//    $('#info').click(function(){
+//        var cordovaVersion = device.cordova;
+//        alert("test");
+//    });
+//}
 
 // Not entirely sure what this does. Research it.
 //$(document).on("deviceready", function(){
