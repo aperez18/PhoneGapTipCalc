@@ -1,0 +1,17 @@
+/* 
+    Created on : Feb 18, 2015, 2:43:24 PM
+    Author     : Andy
+*/
+
+.center, .amounts{
+    text-align: center;
+}
+
+.amounts label{
+    display: inline-block;
+    min-width: 150px;
+}
+
+.totals{
+    color: #080;
+}
