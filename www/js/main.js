@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    $('#info').click(function(){
+    $('#camera').click(function(){
         //var cordovaVersion = device.platform;
         //alert(cordovaVersion);
         navigator.camera.getPicture(cameraSuccess, function(){alert("Failed");},{
