@@ -53,15 +53,27 @@ $(document).ready(function(){
 //    $('#loginNavLink').click(function(){
 //        window.open('loginTest.html', 'Login Page');
 //    });
+
+//    $('#info').click(function(){
+//        var model = device.model;
+//        alert(model);
+//    });
     
 });
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    alert('ready');
     $('#info').click(function(){
-        var cordovaVersion = device.cordova;
-        alert(cordovaVersion);
+        //var cordovaVersion = device.platform;
+        //alert(cordovaVersion);
+        navigator.camera.getPicture(cameraSuccess, function(){alert("Failed");},{
+            sourceType: navigator.camera.PictureSourceType.CAMERA,
+            saveToPhotoAlbum: true} );
+        function cameraSuccess(imageURI){
+            //var imgString = imageURI.substring(7);
+            //$('#imgContainer').html('<img src="'+imgString+'" alt="No image" width="100" height="100">');
+            alert("Saved to: " + imageURI);
+        }
     });
 }
 

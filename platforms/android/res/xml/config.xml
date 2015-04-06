@@ -50,11 +50,13 @@
     </feature>
     <name>PhoneGapTipCalc</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A sample Apache Cordova application that responds to the deviceready event. Calculates a tip based on given percentage
+        stored in HTML5 element localStorage
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 </widget>
