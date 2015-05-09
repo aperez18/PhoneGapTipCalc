@@ -66,18 +66,72 @@ function onDeviceReady() {
     $('#camera').click(function(){
         //var cordovaVersion = device.platform;
         //alert(cordovaVersion);
-        navigator.camera.getPicture(cameraSuccess, function(){alert("Failed");},{
-            sourceType: navigator.camera.PictureSourceType.CAMERA,
-            saveToPhotoAlbum: true} );
+        navigator.camera.getPicture(
+                cameraSuccess, // On success
+                function(){ // On failure
+                    alert("Failed");
+                },
+                {
+                    // Extra Options
+                    sourceType: navigator.camera.PictureSourceType.CAMERA,
+                    saveToPhotoAlbum: true
+                });
         function cameraSuccess(imageURI){
             //var imgString = imageURI.substring(7);
             //$('#imgContainer').html('<img src="'+imgString+'" alt="No image" width="100" height="100">');
             alert("Saved to: " + imageURI);
         }
     });
+
+    $('#btnRetrieve').click(function(){
+        // This is the url of the web service when you test it in browser
+        var localUrl = 'http://localhost:49513/residentPhotos_service.aspx?resident_id=35';
+        var url = 'http://www.capripictureframe.com/mobileLogin.asmx/Login';
+        var user = 'matterhaus124B';
+        var pass = 'wctc12345';
+        window.location.href = 'http://www.capripictureframe.com';
+        /////////////////// GET PICTURES ///////////////////
+        //$.getScript('http://www.capripictureframe.com/residentPhotos_service.aspx?resident_id=35', function(){
+        //    alert('Service reached');
+        //    console.log(photoIds);
+        //});
+        ////////////////////////////////////////////////////
+
+        /*$.ajax({
+            url: localUrl,
+            type: 'POST',
+            dataType: 'XML', // 'JSON' still not working...
+            //contentType: 'application/json;charset=UTF-8',
+            data: {
+                username: user,
+                password: pass
+            },
+            success: function(data){
+                alert('Service Reached');
+                console.log('Reached loginService...');
+                console.log('Attempting to log in with credentials...\n\tUsername: ' + user + '\n\tPassword: ' + pass);
+                var roomId = data.activeElement.firstChild.data;
+                console.log(roomId);
+                if(roomId > 0){
+                    alert('Login Success!');
+                    console.log('Successfully logged into Capri Picture Frame');
+                    console.log('Resident logged into room with ID: ' + roomId);
+                } else {
+                    alert('Invalid Credentials');
+                    console.log('Login Failed: Invalid user credentials given');
+                }
+            },
+            error: function(xhr, status, errorThrown){
+                alert('Request failed.');
+                console.log('Raw Request: ' + xhr);
+                console.log('Status Code: ' + status);
+                console.log('Error : ' + errorThrown);
+            }
+        });*/
+    });
 }
 
-// Not entirely sure what this does. Research it.
+// Not entirely sure what this does. iPhone status bar?
 //$(document).on("deviceready", function(){
     
 //    StatusBar.overlaysWebView(false);

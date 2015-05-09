@@ -12,6 +12,19 @@
         <link href="css/index.css" rel="stylesheet" type="text/css"/>
         <script src="js/libs/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="js/libs/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var photoIds = [];
+            function callback(data) {
+                var photos = data.photos;
+                $.each(photos, function(key, value){
+                    //console.log(value.image_name);
+                    photoIds.push(value.id);
+                });
+            }
+            function deleteCallback(){
+                alert('Callback received!');
+            }
+        </script>
         <script src="~/cordova.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
     </head>
@@ -62,7 +75,7 @@
                         <input type="number" name="tipPercentage" id="tipPercentage" value="" placeholder="Tip Percentage" step="0.01">
                         <a href="#" id="saveSettings" class="center" data-role="button" data-inline="true" data-icon="check">Save</a>
                     </div>
-                    <button type="button" id="info" name="info" class="ui-btn ui-icon-info">Phone Info</button>
+                    <button type="button" id="camera" name="camera" class="ui-btn ui-icon-info">Camera</button>
                 </form>
                 <a href="#login" id="loginLink" class="center" data-role="button" data-inline="true" data-rel="popup" 
                    data-icon="arrow-r" data-theme="b">Login</a>
@@ -82,6 +95,7 @@
                         </form>
                     </div>
                 </div>
+                <button type="button" id="btnRetrieve" class="ui-btn ui-icon-action">AJAX GET</button>
                 <span id="imgContainer"></span>
             </div>
         </div>
